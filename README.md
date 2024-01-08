@@ -1,5 +1,4 @@
 # Mining Software Repositories Infrastructure
-This infrastructure is a bachelor thesis project. It automatically extracts repository data from GitHub into a Neo4J database.
 ## Run the infrastructure
 ### Clone the repository
 ```
