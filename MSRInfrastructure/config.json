@@ -1,0 +1,24 @@
+{
+  "github_tokens_documentation_1": "github_tokens: [str, str, ...] takes in a list of active GitHub tokens with the read:user and read:email permission",
+  "github_tokens_documentation_2": "ensure that token are valid!!! check by sending a manual HTTp request to the GiHub API with the token",
+  "github_tokens": [
+    "xx",
+    "xx"
+  ],
+
+  "threads_documentation": "threads: int specifies the maximum number of concurrent threads each collecting one repository",
+  "threads": 1,
+
+  "deploy_documentation": "deploy: bool should be false if during development as it avoid execution in docker and allows for execution in IDE",
+  "deploy": true,
+
+  "db_documentation": "db_username and db_password are the database credentials",
+  "db_username": "neo4j",
+  "db_password": "indaw88da9woiudnawdawdg5443",
+
+  "commit_content_documentation": "commit_content: bool specifies if the database should store commit file content",
+  "commit_content": false,
+
+  "pull_request_file_content_documentation": "pull_request_file_content: bool specifies if the database should store pull request file content",
+  "pull_request_file_content": false
+}

@@ -1,0 +1,4 @@
+.idea
+*.pyc
+__pycache__/
+DatabaseNeo4J/data

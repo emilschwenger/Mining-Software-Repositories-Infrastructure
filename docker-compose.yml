@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  neo4j1:
+    image: "neo4j:latest"
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/indaw88da9woiudnawdawdg5443
+      - NEO4J_db_import_csv_legacy__quote__escaping=false
+      - NEO4J_db_import_csv_buffer__size=100000000
+      # Docker compose apoc settings source https://neo4j.com/labs/apoc/4.0/installation/#docker
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      - NEO4J_PLUGINS=["apoc", "graph-data-science"]
+    networks:
+      - msr-network
+    volumes:
+      - '${PWD}/DatabaseNeo4J/data:/data'
+      - 'DataAccessVolume:/var/lib/neo4j/import'
+      - 'TimeAccessVolume:/home/repo_times'
+      - 'FileSizeAccessVolume:/home/repo_file_size'
+    healthcheck:
+      test: "/var/lib/neo4j/bin/neo4j status"
+    container_name: database-neo4j
+  msr_infrastructure:
+    user: root
+    build:
+      context: MSRInfrastructure
+      dockerfile: Dockerfile
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - 'DataAccessVolume:/repo_share'
+      - 'TimeAccessVolume:/repo_times'
+      - 'FileSizeAccessVolume:/repo_file_size'
+    networks:
+      - msr-network
+    depends_on:
+      neo4j1:
+        condition: service_healthy
+
+
+volumes:
+  DataAccessVolume:
+  TimeAccessVolume:
+  FileSizeAccessVolume:
+networks:
+  msr-network:
+    name: MSRFramework
+    external: true
