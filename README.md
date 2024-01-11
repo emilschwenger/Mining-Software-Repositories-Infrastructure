@@ -3,7 +3,7 @@
 ### Clone the repository
 ```
 git clone https://github.com/emilschwenger/MSRInfrastructure.git
-cd MiningSoftwareRepositories-Infrastructure
+cd MSRInfrastructure
 ```
 ### Edit configuration file and repository url list
 **Add all repositories to collect to the MSRInfrastructure/repository_list.txt file (every line one repository URL)**
