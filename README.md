@@ -19,3 +19,6 @@ cd MSRInfrastructure
 Run ```docker-compose up -d``` or ```docker compose up -d``` (depending on the installation) to start the infrastructure.
 ## Access the collection results
 Open the Neo4J Browser on http://localhost:7474/browser/ to explore the repository database and run queries.
+
+## Graph Database Schema
+![DATA_SCHEMA](https://github.com/user-attachments/assets/14e9b0aa-ceaa-4975-8817-06d0197842b7)
